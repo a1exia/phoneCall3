@@ -7,6 +7,8 @@
 
 import UIKit
 
+public var numberUser = ""
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -15,5 +17,24 @@ class ViewController: UIViewController {
     }
 
 
+    
+    
+    @IBOutlet weak var textField: UITextField!
+    
+    @IBAction func saveNumber(_ sender: UIButton) {
+     if let newTitle = textField.text {
+         numberUser = newTitle
+     }
+    }
+    
+    @IBAction func clicked(_ sender: Any) {
+        guard let number = URL(string: "tel://" + numberUser) else { return }
+                        UIApplication.shared.open(number)
+    }
+ 
+        
+        
+    
 }
+
 
